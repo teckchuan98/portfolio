@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PERSONAL_INFO } from '../constants';
-import { Terminal, Download, Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { Download, Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const Hero: React.FC = () => {
@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden bg-slate-900">
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-900">
       {/* Dynamic Background */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-primary-600/10 rounded-full blur-[120px] animate-blob"></div>
@@ -30,15 +30,9 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.9),rgba(15,23,42,0.9)),linear-gradient(#1e293b_1px,transparent_1px),linear-gradient(90deg,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] opacity-30"></div>
       </div>
 
-      <div className="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-        <div className="space-y-6">
-          <ScrollReveal>
-            <div className="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-slate-800/80 border border-slate-700 text-primary-400 text-sm font-medium backdrop-blur-md">
-              <Terminal size={14} />
-              <span>Backend Specialist</span>
-            </div>
-          </ScrollReveal>
-          
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
+        <div className="space-y-6 flex-1">
           <ScrollReveal delay={100}>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
               Hi, I'm <br />
@@ -59,9 +53,13 @@ const Hero: React.FC = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <p className="text-slate-300 max-w-lg leading-relaxed text-lg border-l-4 border-slate-700 pl-4">
-              {PERSONAL_INFO.summary}
-            </p>
+            <div className="max-w-2xl space-y-4 border-l-4 border-slate-700 pl-6">
+              {PERSONAL_INFO.summary.split('\n\n').map((paragraph, index) => (
+                <p key={index} className="text-slate-300 leading-relaxed text-base text-justify">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
@@ -86,7 +84,7 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Visual Element */}
-        <ScrollReveal delay={600} className="hidden lg:block relative">
+        <ScrollReveal delay={600} className="hidden lg:block relative flex-1 lg:-mr-6">
           <div className="relative z-10 animate-float">
             <div className="glass-card rounded-2xl p-0 shadow-2xl overflow-hidden">
               {/* Fake IDE Header */}
@@ -115,8 +113,8 @@ const Hero: React.FC = () => {
                     &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-green-400">"PostgreSQL"</span><br/>
                     &nbsp;&nbsp;<span className="text-slate-300">{`}`};</span><br/>
                     <br/>
-                    &nbsp;&nbsp;<span className="text-purple-400">public void</span> <span className="text-blue-400">work</span><span className="text-slate-300">() {</span><br/>
-                    &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-purple-400">while</span><span className="text-slate-300">(</span><span className="text-blue-300">alive</span><span className="text-slate-300">) {</span><br/>
+                    &nbsp;&nbsp;<span className="text-purple-400">public void</span> <span className="text-blue-400">work</span><span className="text-slate-300">{"() {"}</span><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span className="text-purple-400">while</span><span className="text-slate-300">(</span><span className="text-blue-300">alive</span><span className="text-slate-300">{") {"}</span><br/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-slate-300">code();</span><br/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-slate-300">debug();</span><br/>
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span className="text-slate-300">innovate();</span><br/>
@@ -140,8 +138,9 @@ const Hero: React.FC = () => {
           {/* Background Glows for visual */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-primary-500/20 to-indigo-500/20 blur-3xl -z-10 rounded-full"></div>
         </ScrollReveal>
+        </div>
       </div>
-      
+
       {/* Scroll indicator */}
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce">
         <ChevronDown size={24} />

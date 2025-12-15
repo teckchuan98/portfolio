@@ -1,6 +1,6 @@
 import React from 'react';
 import { PERSONAL_INFO, EDUCATION } from '../constants';
-import { Mail, Phone, MapPin, GraduationCap, Send } from 'lucide-react';
+import { Mail, Phone, MapPin, GraduationCap } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const Contact: React.FC = () => {
@@ -54,52 +54,26 @@ const Contact: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              <div className="mt-16 bg-slate-900/50 p-6 rounded-2xl border border-slate-800/50 backdrop-blur-sm">
-                 <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
-                   <GraduationCap className="text-primary-500"/> Education
-                 </h3>
-                 <div className="space-y-6">
-                   {EDUCATION.map((edu, idx) => (
-                     <div key={idx} className="pl-4 border-l-2 border-slate-700 hover:border-primary-500 transition-colors">
-                       <p className="text-white font-semibold text-lg">{edu.institution}</p>
-                       <p className="text-sm text-slate-400 mt-1">{edu.degree}</p>
-                     </div>
-                   ))}
-                 </div>
-              </div>
             </div>
           </ScrollReveal>
 
           <ScrollReveal delay={200}>
             <div className="bg-slate-900 p-8 rounded-3xl border border-slate-800 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-64 h-64 bg-primary-600/5 rounded-full blur-3xl -z-10 group-hover:bg-primary-600/10 transition-colors"></div>
-              
-              <h3 className="text-2xl font-bold text-white mb-8">Send me a message</h3>
-              <form className="space-y-5" onSubmit={(e) => e.preventDefault()}>
-                <div className="grid grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <label className="text-xs text-slate-500 uppercase font-bold tracking-wider">Name</label>
-                    <input type="text" className="w-full bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all placeholder:text-slate-600" placeholder="John Doe" />
+
+              <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+                <GraduationCap className="text-primary-500" size={32} />
+                Education
+              </h3>
+              <div className="space-y-8">
+                {EDUCATION.map((edu, idx) => (
+                  <div key={idx} className="relative pl-8 border-l-4 border-primary-500/30 hover:border-primary-500 transition-all duration-300 py-4 group/edu">
+                    <div className="absolute -left-3 top-6 w-5 h-5 rounded-full bg-primary-500 border-4 border-slate-900 group-hover/edu:scale-125 transition-transform"></div>
+                    <p className="text-white font-bold text-xl mb-2 group-hover/edu:text-primary-400 transition-colors">{edu.institution}</p>
+                    <p className="text-base text-slate-400 leading-relaxed">{edu.degree}</p>
                   </div>
-                  <div className="space-y-2">
-                    <label className="text-xs text-slate-500 uppercase font-bold tracking-wider">Email</label>
-                    <input type="email" className="w-full bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all placeholder:text-slate-600" placeholder="john@example.com" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs text-slate-500 uppercase font-bold tracking-wider">Subject</label>
-                  <input type="text" className="w-full bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all placeholder:text-slate-600" placeholder="Project Inquiry" />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs text-slate-500 uppercase font-bold tracking-wider">Message</label>
-                  <textarea rows={5} className="w-full bg-slate-950/50 border border-slate-700 rounded-xl px-4 py-3.5 text-white focus:border-primary-500 focus:ring-1 focus:ring-primary-500 outline-none transition-all resize-none placeholder:text-slate-600" placeholder="Hello, I'd like to discuss..."></textarea>
-                </div>
-                <button className="w-full bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white font-bold py-4 rounded-xl transition-all shadow-lg shadow-primary-600/20 hover:shadow-primary-600/40 hover:-translate-y-1 flex items-center justify-center gap-2">
-                  <Send size={18} />
-                  Send Message
-                </button>
-              </form>
+                ))}
+              </div>
             </div>
           </ScrollReveal>
 
