@@ -80,7 +80,7 @@ const Contact: React.FC = () => {
         </div>
         
         <div className="border-t border-slate-800 mt-20 pt-8 text-center text-slate-600 text-sm">
-          <p>© {new Date().getFullYear()} Ting Teck Chuan. Crafted with React, Gemini & Tailwind.</p>
+          <p>© 2025 Ting Teck Chuan</p>
         </div>
       </div>
     </section>
