@@ -24,7 +24,7 @@ const PrivacyPolicy: React.FC = () => {
 
                     <section className="mb-12 bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50">
                         <p className="lead text-lg text-slate-300">
-                            At Matchey (whereStrangersMeet), we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclosure, and safeguard your information when you use our mobile application.
+                            At Matchey, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclosure, and safeguard your information when you use our mobile application.
                         </p>
                     </section>
 
@@ -55,8 +55,6 @@ const PrivacyPolicy: React.FC = () => {
                             <ul className="space-y-3 list-disc pl-5 text-slate-300">
                                 <li><strong>Personal Data:</strong> Name, email address, age, gender, and profile photos you provide during registration.</li>
                                 <li><strong>Usage Data:</strong> Information about your activity on the app, such as matches, messages sent, and time spent.</li>
-                                <li><strong>Device Data:</strong> Device model, operating system version, and unique device identifiers to ensure app compatibility and security.</li>
-                                <li><strong>Location Data:</strong> General location data (if permitted) to help find matches near you.</li>
                             </ul>
                         </section>
 
@@ -82,7 +80,7 @@ const PrivacyPolicy: React.FC = () => {
                             </h2>
                             <p className="text-slate-300 mb-4">We do not sell your personal data. We may share information only in the following situations:</p>
                             <ul className="space-y-3 list-disc pl-5 text-slate-300">
-                                <li><strong>With Other Users:</strong> Your public profile information (name, age, photos) is visible to other users to facilitate matching.</li>
+                                <li><strong>With Other Users:</strong> Your public profile information (name, age, photos, voice introductions) is visible to other users to facilitate matching.</li>
                                 <li><strong>Service Providers:</strong> We may share data with third-party vendors who perform services for us (e.g., hosting, data analysis), bound by confidentiality agreements.</li>
                                 <li><strong>Legal Obligations:</strong> We may disclose information if required to do so by law or in response to valid requests by public authorities.</li>
                             </ul>
@@ -112,8 +110,8 @@ const PrivacyPolicy: React.FC = () => {
                             </p>
                             <div className="bg-slate-800/50 p-6 rounded-lg border border-slate-700 inline-block">
                                 <p className="text-slate-200 font-medium">Matchey Support Team</p>
-                                <a href="mailto:support@wherestrangermeets.com" className="text-primary-400 hover:text-primary-300 transition-colors">
-                                    support@wherestrangermeets.com
+                                <a href="mailto:codeboi98@gmail.com" className="text-primary-400 hover:text-primary-300 transition-colors">
+                                    codeboi98@gmail.com
                                 </a>
                             </div>
                         </section>
