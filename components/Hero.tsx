@@ -30,21 +30,21 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-[linear-gradient(rgba(15,23,42,0.9),rgba(15,23,42,0.9)),linear-gradient(#1e293b_1px,transparent_1px),linear-gradient(90deg,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_60%_60%_at_50%_50%,#000_70%,transparent_100%)] opacity-30"></div>
       </div>
 
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row gap-12 items-center">
-        <div className="space-y-6 flex-1">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-12 items-center">
+        <div className="space-y-4 sm:space-y-6 flex-1">
           <ScrollReveal delay={100}>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-white leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-tight">
               Hi, I'm <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-sky-300 to-indigo-500 text-glow">
                 {PERSONAL_INFO.name}
               </span>
             </h1>
           </ScrollReveal>
-          
+
           <ScrollReveal delay={200}>
-            <div className="h-8">
-              <p className="text-xl text-slate-400 font-mono">
+            <div className="h-6 sm:h-8">
+              <p className="text-base sm:text-lg md:text-xl text-slate-400 font-mono">
                 <span className="text-primary-500 mr-2">{'>'}</span>
                 {typedText}
                 <span className="animate-pulse bg-primary-500 w-2 h-5 inline-block ml-1 align-middle"></span>
@@ -53,9 +53,9 @@ const Hero: React.FC = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={300}>
-            <div className="max-w-2xl space-y-4 border-l-4 border-slate-700 pl-6">
+            <div className="max-w-2xl space-y-3 sm:space-y-4 border-l-2 sm:border-l-4 border-slate-700 pl-4 sm:pl-6">
               {PERSONAL_INFO.summary.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="text-slate-300 leading-relaxed text-base text-justify">
+                <p key={index} className="text-slate-300 leading-relaxed text-sm sm:text-base text-justify">
                   {paragraph}
                 </p>
               ))}
@@ -63,22 +63,22 @@ const Hero: React.FC = () => {
           </ScrollReveal>
 
           <ScrollReveal delay={400}>
-            <div className="flex flex-wrap gap-4 pt-4">
-              <a href="#contact" className="px-8 py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-primary-600/20 hover:shadow-primary-600/40 transform hover:-translate-y-1">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <a href="#contact" className="px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-primary-600/20 hover:shadow-primary-600/40 transform hover:-translate-y-1 text-center">
                 Contact Me
               </a>
-              <button className="px-8 py-3.5 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600 hover:border-slate-500 text-slate-200 hover:text-white font-medium rounded-xl transition-all flex items-center gap-2 group backdrop-blur-sm">
+              <button className="px-6 sm:px-8 py-3 sm:py-3.5 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600 hover:border-slate-500 text-slate-200 hover:text-white font-medium rounded-xl transition-all flex items-center justify-center gap-2 group backdrop-blur-sm">
                 <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
                 <span>Download CV</span>
               </button>
             </div>
           </ScrollReveal>
-          
+
           <ScrollReveal delay={500}>
-            <div className="flex gap-6 pt-8 text-slate-400">
-              <a href="#" className="hover:text-primary-400 transition-colors transform hover:scale-110"><Github size={24} /></a>
-              <a href="#" className="hover:text-primary-400 transition-colors transform hover:scale-110"><Linkedin size={24} /></a>
-              <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-primary-400 transition-colors transform hover:scale-110"><Mail size={24} /></a>
+            <div className="flex gap-4 sm:gap-6 pt-4 sm:pt-8 text-slate-400">
+              <a href="#" className="hover:text-primary-400 transition-colors transform hover:scale-110"><Github size={20} className="sm:w-6 sm:h-6" /></a>
+              <a href="#" className="hover:text-primary-400 transition-colors transform hover:scale-110"><Linkedin size={20} className="sm:w-6 sm:h-6" /></a>
+              <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-primary-400 transition-colors transform hover:scale-110"><Mail size={20} className="sm:w-6 sm:h-6" /></a>
             </div>
           </ScrollReveal>
         </div>
@@ -142,8 +142,8 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce">
-        <ChevronDown size={24} />
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 -translate-x-1/2 text-slate-500 animate-bounce">
+        <ChevronDown size={20} className="sm:w-6 sm:h-6" />
       </div>
     </section>
   );
