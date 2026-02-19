@@ -24,7 +24,7 @@ const PrivacyPolicy: React.FC = () => {
 
                     <section className="mb-12 bg-slate-800/50 rounded-2xl p-8 border border-slate-700/50">
                         <p className="lead text-lg text-slate-300">
-                            At Matchey, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains how we collect, use, disclosure, and safeguard your information when you use our mobile application.
+                            At Matchey, we respect your privacy and are committed to protecting the personal information you share with us. This Privacy Policy explains what we collect, how we collect it, how we use it, who we share it with, and how we safeguard your information when you use our mobile application.
                         </p>
                     </section>
 
@@ -53,8 +53,10 @@ const PrivacyPolicy: React.FC = () => {
                                 1. Information We Collect
                             </h2>
                             <ul className="space-y-3 list-disc pl-5 text-slate-300">
-                                <li><strong>Personal Data:</strong> Name, email address, age, gender, and profile photos you provide during registration.</li>
-                                <li><strong>Usage Data:</strong> Information about your activity on the app, such as matches, messages sent, and time spent.</li>
+                                <li><strong>Account and Profile Data:</strong> Name, email address, phone number, gender, occupation details, interests, profile photos, and voice intro you provide.</li>
+                                <li><strong>Content Data:</strong> Messages, media attachments, and selfie/verification content you choose to upload.</li>
+                                <li><strong>AI Feature Data:</strong> Content submitted when you use AI-powered features, including photos for image verification, voice recordings for voice verification/transcription, and chat text/related attachments for AI replies.</li>
+                                <li><strong>Technical and Usage Data:</strong> App activity, log/error diagnostics, device/app identifiers, and push notification token.</li>
                             </ul>
                         </section>
 
@@ -65,36 +67,61 @@ const PrivacyPolicy: React.FC = () => {
                             </h2>
                             <p className="text-slate-300 mb-4">We use the collected data to:</p>
                             <ul className="space-y-3 list-disc pl-5 text-slate-300">
-                                <li>Facilitate account creation and authentication.</li>
-                                <li>Provide and improve our matching algorithm to connect you with relevant users.</li>
+                                <li>Facilitate account creation, sign in, and account security.</li>
+                                <li>Build and display your profile to other users based on your settings.</li>
                                 <li>Enable communication features between matched users.</li>
-                                <li>Monitor and prevent fraudulent or abusive activity.</li>
-                                <li>Send you important updates, security alerts, and support messages.</li>
+                                <li>Perform safety and authenticity checks (including image/voice verification).</li>
+                                <li>Provide AI-assisted chat replies when you invoke AI chat features.</li>
+                                <li>Monitor, investigate, and prevent fraudulent, harmful, or abusive activity.</li>
+                                <li>Send important updates, service messages, and support responses.</li>
+                            </ul>
+                        </section>
+
+                        <section>
+                            <h2 className="text-2xl font-semibold mb-4 text-slate-100">3. How We Collect Information</h2>
+                            <ul className="space-y-3 list-disc pl-5 text-slate-300">
+                                <li><strong>Directly from you:</strong> When you create an account, complete onboarding, upload photos/voice, or send messages.</li>
+                                <li><strong>Automatically:</strong> Through app/server logs and service diagnostics when you use the app.</li>
+                                <li><strong>From integrated services:</strong> Authentication and infrastructure providers used to operate core app functionality.</li>
                             </ul>
                         </section>
 
                         <section>
                             <h2 className="text-2xl font-semibold mb-4 text-slate-100 flex items-center gap-2">
                                 <Lock className="w-6 h-6 text-primary-400" />
-                                3. Sharing of Your Information
+                                4. Sharing of Your Information
                             </h2>
                             <p className="text-slate-300 mb-4">We do not sell your personal data. We may share information only in the following situations:</p>
                             <ul className="space-y-3 list-disc pl-5 text-slate-300">
                                 <li><strong>With Other Users:</strong> Your public profile information (name, age, photos, voice introductions) is visible to other users to facilitate matching.</li>
-                                <li><strong>Service Providers:</strong> We may share data with third-party vendors who perform services for us (e.g., hosting, data analysis), bound by confidentiality agreements.</li>
+                                <li><strong>AI Service Provider (OpenAI, L.L.C.):</strong> When you use AI-powered features, relevant content is transmitted to OpenAI to perform image verification, voice verification/transcription, and AI-generated chat replies. This data sharing occurs only after required in-app consent for AI features.</li>
+                                <li><strong>Infrastructure and Authentication Providers:</strong> We use third-party providers to support authentication, cloud storage, notifications, and service operations. These providers process data only to provide contracted services.</li>
                                 <li><strong>Legal Obligations:</strong> We may disclose information if required to do so by law or in response to valid requests by public authorities.</li>
                             </ul>
+                            <p className="text-slate-300 mt-4">
+                                We require service providers that process personal data on our behalf to implement privacy and security protections appropriate to the data they process.
+                            </p>
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-semibold mb-4 text-slate-100">4. Data Retention</h2>
+                            <h2 className="text-2xl font-semibold mb-4 text-slate-100">5. AI Feature Consent</h2>
+                            <p className="text-slate-300">
+                                Before personal data is sent to our third-party AI service provider for AI-powered features, the app presents a consent notice that identifies what data is sent, who receives it, and why. If you do not agree, AI-powered features will not proceed.
+                            </p>
+                            <p className="text-slate-300 mt-3">
+                                We do not use your personal data for third-party advertising.
+                            </p>
+                        </section>
+
+                        <section>
+                            <h2 className="text-2xl font-semibold mb-4 text-slate-100">6. Data Retention</h2>
                             <p className="text-slate-300">
                                 We retain your personal information only for as long as necessary to fulfill the purposes set out in this Privacy Policy. You can request deletion of your account and data at any time through the app settings.
                             </p>
                         </section>
 
                         <section>
-                            <h2 className="text-2xl font-semibold mb-4 text-slate-100">5. Children's Privacy</h2>
+                            <h2 className="text-2xl font-semibold mb-4 text-slate-100">7. Children's Privacy</h2>
                             <p className="text-slate-300">
                                 Matchey is not intended for use by children under the age of 18. We do not knowingly collect personal information from children under 18. If we become aware that we have collected personal data from a child under 18, we will take steps to delete such information.
                             </p>
@@ -103,7 +130,7 @@ const PrivacyPolicy: React.FC = () => {
                         <section>
                             <h2 className="text-2xl font-semibold mb-4 text-slate-100 flex items-center gap-2">
                                 <Mail className="w-6 h-6 text-primary-400" />
-                                6. Contact Us
+                                8. Contact Us
                             </h2>
                             <p className="text-slate-300 mb-4">
                                 If you have questions or comments about this Privacy Policy, please contact us at:
