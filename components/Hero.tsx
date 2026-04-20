@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { PERSONAL_INFO } from '../constants';
-import { Download, Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { Download, ChevronDown } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 
 const Hero: React.FC = () => {
@@ -67,20 +67,13 @@ const Hero: React.FC = () => {
               <a href="#contact" className="px-6 sm:px-8 py-3 sm:py-3.5 bg-gradient-to-r from-primary-600 to-primary-500 hover:from-primary-500 hover:to-primary-400 text-white font-semibold rounded-xl transition-all shadow-lg shadow-primary-600/20 hover:shadow-primary-600/40 transform hover:-translate-y-1 text-center">
                 Contact Me
               </a>
-              <button className="px-6 sm:px-8 py-3 sm:py-3.5 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600 hover:border-slate-500 text-slate-200 hover:text-white font-medium rounded-xl transition-all flex items-center justify-center gap-2 group backdrop-blur-sm">
+              <a href="/TeckChuan陳德权.pdf" download className="px-6 sm:px-8 py-3 sm:py-3.5 bg-slate-800/50 hover:bg-slate-700/50 border border-slate-600 hover:border-slate-500 text-slate-200 hover:text-white font-medium rounded-xl transition-all flex items-center justify-center gap-2 group backdrop-blur-sm">
                 <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
                 <span>Download CV</span>
-              </button>
+              </a>
             </div>
           </ScrollReveal>
 
-          <ScrollReveal delay={500}>
-            <div className="flex gap-4 sm:gap-6 pt-4 sm:pt-8 text-slate-400">
-              <a href="#" className="hover:text-primary-400 transition-colors transform hover:scale-110"><Github size={20} className="sm:w-6 sm:h-6" /></a>
-              <a href="#" className="hover:text-primary-400 transition-colors transform hover:scale-110"><Linkedin size={20} className="sm:w-6 sm:h-6" /></a>
-              <a href={`mailto:${PERSONAL_INFO.email}`} className="hover:text-primary-400 transition-colors transform hover:scale-110"><Mail size={20} className="sm:w-6 sm:h-6" /></a>
-            </div>
-          </ScrollReveal>
         </div>
 
         {/* Visual Element */}

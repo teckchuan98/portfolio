@@ -4,7 +4,7 @@ export const PERSONAL_INFO = {
   name: "Ting Teck Chuan",
   title: "Software Developer",
   email: "tingteckchuan@gmail.com",
-  phone: "+60 108658228",
+  phone: "+60 1160882788",
   location: "Malaysia",
   summary: "Backend Engineer with 4+ years of experience building and optimizing backend systems across enterprise, fintech, and government domains. Strong focus on Java & Spring Boot, API development, and performance optimization for data‑intensive workflows.\n\nExperienced in debugging production issues end‑to‑end (server health, logs, database behavior, and application logic), improving slow systems, and stabilizing legacy codebases. Comfortable operating in startup, scale‑up, and MNC environments, frequently trusted to jump into unfamiliar projects and resolve critical backend issues.\n\nActively building side projects (real users, TestFlight release), with hands‑on exposure to WebSocket‑based multiplayer systems, and ongoing self‑driven learning in LLMs, RAG, and fine‑tuning.",
 };
