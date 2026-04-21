@@ -6,7 +6,11 @@ const MobileBlock: React.FC = () => {
   return (
     <div className="min-h-screen bg-slate-900 flex flex-col items-center justify-center px-8 text-center">
       <div className="space-y-6">
-        <div className="text-5xl">👋</div>
+        <img
+          src="/profile2.png"
+          alt={PERSONAL_INFO.name}
+          className="w-24 h-24 rounded-full object-cover mx-auto ring-2 ring-primary-500/50"
+        />
         <h1 className="text-2xl font-bold text-white">
           Hi, I'm {PERSONAL_INFO.name}
         </h1>
