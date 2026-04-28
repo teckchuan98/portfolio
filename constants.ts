@@ -6,12 +6,13 @@ export const PERSONAL_INFO = {
   email: "tingteckchuan@gmail.com",
   phone: "+60 1160882788",
   location: "Malaysia",
-  summary: "Backend Engineer with 4+ years of experience building and optimizing backend systems across enterprise, fintech, and government domains. Strong focus on Java & Spring Boot, API development, and performance optimization for data‑intensive workflows.\n\nExperienced in debugging production issues end‑to‑end (server health, logs, database behavior, and application logic), improving slow systems, and stabilizing legacy codebases. Comfortable operating in startup, scale‑up, and MNC environments, frequently trusted to jump into unfamiliar projects and resolve critical backend issues.\n\nActively building side projects (real users, TestFlight release), with hands‑on exposure to WebSocket‑based multiplayer systems, and ongoing self‑driven learning in LLMs, RAG, and fine‑tuning.",
+  summary: "Backend Engineer with 5+ years of experience building and optimizing backend systems across enterprise, fintech, and government domains. Strong focus on Java & Spring Boot, API development, and performance optimization for data‑intensive workflows.\n\nExperienced in debugging production issues end‑to‑end (server health, logs, database behavior, and application logic), improving slow systems, and stabilizing legacy codebases. Comfortable operating in startup, scale‑up, and MNC environments, frequently trusted to jump into unfamiliar projects and resolve critical backend issues.\n\nActively building side projects (real users, TestFlight release), with hands‑on exposure to WebSocket‑based multiplayer systems, and ongoing self‑driven learning in LLMs, RAG, and fine‑tuning.",
 };
 
 export const EXPERIENCES: Experience[] = [
   {
     id: "pymsoft",
+    type: "professional" as const,
     company: "Pymsoft Sdn Bhd",
     role: "Software Developer",
     duration: "Oct 2023 – Present",
@@ -29,6 +30,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "hitachi",
+    type: "professional" as const,
     company: "Hitachi Ebworx Sdn Bhd",
     role: "Application Engineer",
     duration: "Sep 2022 – Sep 2023",
@@ -45,6 +47,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "ayp",
+    type: "professional" as const,
     company: "AYP HR Group Sdn Bhd",
     role: "Software Engineer",
     duration: "Feb 2021 – Aug 2022",
@@ -57,6 +60,7 @@ export const EXPERIENCES: Experience[] = [
   },
   {
     id: "b2be",
+    type: "professional" as const,
     company: "B2BE GSS Sdn Bhd",
     role: "Intern Developer",
     duration: "Dec 2019 – Feb 2020",
@@ -65,18 +69,74 @@ export const EXPERIENCES: Experience[] = [
       "Implemented business transaction documents in C programming.",
       "Developed front-end web portals using Vue.js based on precise design specifications."
     ]
+  },
+  {
+    id: "matchey",
+    type: "personal" as const,
+    platform: "ios" as const,
+    company: "Matchey",
+    role: "Solo Developer",
+    duration: "2024 – Present",
+    image: "/app.PNG",
+    link: "https://apps.apple.com/my/app/matchey/id6758370075",
+    techStack: ["Flutter", "Dart", "WebSocket", "Firebase"],
+    description: [
+      "A communication app for working professionals to connect and network with one another.",
+      "Live on the App Store with real users.",
+      "Built real-time messaging with WebSocket-based multiplayer architecture.",
+      "Sole developer — handled design, backend, and mobile client end-to-end."
+    ]
+  },
+  {
+    id: "devkerja",
+    type: "personal" as const,
+    platform: "web" as const,
+    company: "Devkerja",
+    role: "Solo Developer",
+    duration: "2024 – Present",
+    link: "https://devkerja.com",
+    techStack: ["TypeScript", "WebSocket", "GitHub API"],
+    description: [
+      "A collaborative coding platform that brings live code editing, GitHub integration, and built-in calling into one unified workspace.",
+      "Eliminates context-switching by keeping everyone on the same surface — open one session, stay focused.",
+      "Features GitHub repository integration to work with real files and branches directly in the editor.",
+      "Embedded floating call window so teams can communicate without leaving the coding environment."
+    ]
+  },
+  {
+    id: "fitness-app",
+    type: "personal" as const,
+    platform: "ios" as const,
+    company: "Fitness Manager",
+    role: "Solo Developer",
+    duration: "2025 – Present",
+    image: "/app1.PNG",
+    link: "https://testflight.apple.com/join/dx7zdwdw",
+    techStack: ["Flutter", "Dart", "Firebase"],
+    description: [
+      "An all-in-one fitness client management app for personal trainers.",
+      "Currently in TestFlight beta — join via the link.",
+      "Manages client progress, workout plans, and session scheduling in one place.",
+      "Sole developer — handled design, backend, and mobile client end-to-end."
+    ]
   }
 ];
 
 export const SKILLS: Skill[] = [
-  { name: "Java / Spring Boot", level: 85, category: "Backend" },
-  { name: "PostgreSQL / SQL", level: 80, category: "Backend" },
-  { name: "APIs & Services", level: 60, category: "Backend" },
-  { name: "Python", level: 75, category: "Languages" },
-  { name: "Flutter", level: 50, category: "Frontend" },
-  { name: "Git / Version Control", level: 75, category: "Tools" },
-  { name: "Linux", level: 60, category: "Tools" },
-  { name: "JMeter / Testing", level: 30, category: "Tools" },
+  { name: "Java / Spring Boot", level: 85, category: "Backend", icon: ["java", "spring"] },
+  { name: "PostgreSQL / SQL", level: 80, category: "Backend", icon: ["postgres"] },
+  { name: "APIs & Services", level: 60, category: "Backend", icon: ["postman"] },
+  { name: "Python", level: 75, category: "Languages", icon: ["python"] },
+  { name: "Flutter", level: 50, category: "Frontend", icon: ["flutter"] },
+  { name: "Git / Version Control", level: 75, category: "Tools", icon: ["git"] },
+  { name: "Linux", level: 60, category: "Tools", icon: ["linux"] },
+  { name: "JMeter / Testing", level: 30, category: "Tools", icon: [], fallback: "gauge" },
+  { name: "Codex", level: 70, category: "AI", icon: ["/codex-icon.svg"] },
+  { name: "Claude Code", level: 75, category: "AI", icon: ["https://cdn.simpleicons.org/claude/D97757"] },
+  { name: "Firebase", level: 60, category: "Backend", icon: ["firebase"] },
+  { name: "Supabase", level: 60, category: "Backend", icon: ["supabase"] },
+  { name: "Stripe", level: 50, category: "Backend", icon: ["https://cdn.simpleicons.org/stripe/635BFF"] },
+  { name: "Render", level: 55, category: "Tools", icon: ["https://cdn.simpleicons.org/render/46E3B7"] },
 ];
 
 export const EDUCATION: Education[] = [

@@ -5,12 +5,18 @@ export interface Experience {
   duration: string;
   description: string[];
   techStack: string[];
+  type: 'professional' | 'personal';
+  platform?: 'ios' | 'web';
+  image?: string;
+  link?: string;
 }
 
 export interface Skill {
   name: string;
-  level: number; // 0-100 for chart
-  category: 'Backend' | 'Frontend' | 'Tools' | 'Languages';
+  level: number;
+  category: 'Backend' | 'Frontend' | 'Tools' | 'Languages' | 'AI';
+  icon: string[];
+  fallback?: string;
 }
 
 export interface Education {

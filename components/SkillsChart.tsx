@@ -1,126 +1,88 @@
-import React, { useState } from 'react';
-import { ResponsiveContainer, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar, Tooltip } from 'recharts';
+import React from 'react';
+import { Gauge, Sparkles, Bot, Monitor, Brain, LucideIcon } from 'lucide-react';
 import { SKILLS } from '../constants';
 import ScrollReveal from './ScrollReveal';
 
+const CATEGORY_STYLES: Record<string, string> = {
+  Backend: 'bg-indigo-100 text-indigo-700',
+  Frontend: 'bg-pink-100 text-pink-700',
+  Tools: 'bg-orange-100 text-orange-700',
+  Languages: 'bg-green-100 text-green-700',
+  AI: 'bg-purple-100 text-purple-700',
+};
+
+const FALLBACK_ICONS: Record<string, LucideIcon> = {
+  gauge: Gauge,
+  sparkles: Sparkles,
+  bot: Bot,
+  monitor: Monitor,
+  brain: Brain,
+};
+
 const SkillsChart: React.FC = () => {
-  const [visibleSkills, setVisibleSkills] = useState<Set<string>>(
-    new Set(SKILLS.map(skill => skill.name))
-  );
-
-  const toggleSkill = (skillName: string) => {
-    setVisibleSkills(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(skillName)) {
-        newSet.delete(skillName);
-      } else {
-        newSet.add(skillName);
-      }
-      return newSet;
-    });
-  };
-
-  const filteredSkills = SKILLS.filter(skill => visibleSkills.has(skill.name));
-
   return (
-    <section id="skills" className="py-12 sm:py-16 md:py-24 bg-slate-900 relative">
-       {/* Decorative blob */}
-       <div className="absolute right-0 top-1/4 w-96 h-96 bg-primary-900/20 rounded-full blur-3xl -z-10"></div>
+    <section id="skills" className="py-12 sm:py-16 md:py-24 bg-cream-100 relative">
+      <div className="absolute right-0 top-1/4 w-96 h-96 bg-gray-300/20 rounded-full blur-3xl -z-10"></div>
 
       <div className="container mx-auto px-4 sm:px-6">
         <ScrollReveal width="100%">
           <div className="text-center mb-10 sm:mb-12 md:mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-3 sm:mb-4">Technical Proficiency</h2>
-            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-primary-500 to-indigo-500 mx-auto rounded-full"></div>
-            <p className="mt-3 sm:mt-4 text-slate-400 text-sm sm:text-base px-4">A visual overview of my technical arsenal. Click to toggle skills.</p>
+            <h2 className="font-sans text-3xl sm:text-4xl font-bold text-gray-900 mb-3 sm:mb-4">Technical Proficiency</h2>
+            <div className="w-16 sm:w-20 h-1 bg-gradient-to-r from-gold to-gold-light mx-auto rounded-full"></div>
+            <p className="mt-3 sm:mt-4 text-gray-500 text-sm sm:text-base px-4">Technologies I work with</p>
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 md:gap-12 items-center">
+        {(() => {
+          const cols = 5;
+          const main = SKILLS.slice(0, Math.floor(SKILLS.length / cols) * cols);
+          const overflow = SKILLS.slice(main.length);
 
-          {/* Chart */}
-          <ScrollReveal delay={200} className="w-full" width="100%">
-            <div className="h-[300px] sm:h-[350px] md:h-[450px] w-full glass-card rounded-xl sm:rounded-2xl p-4 sm:p-6 border border-slate-700/50 shadow-2xl relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-primary-500/5 to-transparent rounded-xl sm:rounded-2xl pointer-events-none"></div>
-              <ResponsiveContainer width="100%" height="100%">
-                <RadarChart cx="50%" cy="50%" outerRadius="70%" data={filteredSkills}>
-                  <PolarGrid stroke="#334155" strokeDasharray="3 3" />
-                  <PolarAngleAxis
-                    dataKey="name"
-                    tick={{ fill: '#94a3b8', fontSize: 11, fontWeight: 500 }}
-                    className="text-[10px] sm:text-xs"
-                  />
-                  <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                  <Radar
-                    name="Skill Level"
-                    dataKey="level"
-                    stroke="#0ea5e9"
-                    strokeWidth={2}
-                    fill="#0ea5e9"
-                    fillOpacity={0.4}
-                    isAnimationActive={true}
-                    dot={{ r: 3, fill: "#0ea5e9", strokeWidth: 2, stroke: "#0f172a" }}
-                  />
-                  <Tooltip
-                    contentStyle={{ backgroundColor: '#0f172a', borderColor: '#1e293b', color: '#f8fafc', borderRadius: '0.5rem', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.5)' }}
-                    itemStyle={{ color: '#38bdf8' }}
-                  />
-                </RadarChart>
-              </ResponsiveContainer>
-            </div>
-          </ScrollReveal>
+          const renderSkill = (skill: typeof SKILLS[0], index: number) => (
+            <ScrollReveal key={skill.name} delay={index * 60} width="100%">
+              <div className="flex flex-col items-center text-center p-3 hover:-translate-y-1 transition-all duration-300">
+                <div className="flex items-center justify-center gap-2 mb-3">
+                  {skill.icon.length > 0 ? skill.icon.map((ic) => (
+                    <img
+                      key={ic}
+                      src={ic.startsWith('https://') || ic.startsWith('/') ? ic : `https://skillicons.dev/icons?i=${ic}&theme=light`}
+                      alt={ic}
+                      className="w-10 h-10 sm:w-12 sm:h-12"
+                    />
+                  )) : (() => {
+                    const FallbackIcon = FALLBACK_ICONS[skill.fallback ?? 'gauge'] ?? Gauge;
+                    return (
+                      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gray-100 flex items-center justify-center">
+                        <FallbackIcon size={24} className="text-gray-500" />
+                      </div>
+                    );
+                  })()}
+                </div>
+                <h3 className="font-sans text-sm sm:text-base font-semibold text-gray-900 mb-2 leading-tight">{skill.name}</h3>
+                <span className={`text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full uppercase tracking-wide font-bold ${CATEGORY_STYLES[skill.category]}`}>
+                  {skill.category}
+                </span>
+              </div>
+            </ScrollReveal>
+          );
 
-          {/* List View */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
-             {SKILLS.map((skill, index) => {
-               const isVisible = visibleSkills.has(skill.name);
-               return (
-                 <ScrollReveal key={skill.name} delay={300 + (index * 50)} width="100%">
-                   <div
-                     onClick={() => toggleSkill(skill.name)}
-                     className={`p-4 sm:p-5 rounded-lg sm:rounded-xl border transition-all duration-300 group hover:transform hover:-translate-y-1 hover:shadow-lg cursor-pointer ${
-                       isVisible
-                         ? 'bg-slate-800/50 border-slate-700 hover:border-primary-500/50 hover:bg-slate-800'
-                         : 'bg-slate-800/20 border-slate-700/30 opacity-40'
-                     }`}
-                   >
-                     <div className="flex justify-between items-center mb-2.5 sm:mb-3">
-                       <h3 className={`text-sm sm:text-base font-semibold transition-colors ${
-                         isVisible ? 'text-white group-hover:text-primary-400' : 'text-slate-500 line-through'
-                       }`}>
-                         {skill.name}
-                       </h3>
-                       <span className={`text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded-full uppercase tracking-wide font-bold ${
-                         skill.category === 'Backend' ? 'bg-indigo-900/50 text-indigo-300' :
-                         skill.category === 'Frontend' ? 'bg-pink-900/50 text-pink-300' :
-                         skill.category === 'Tools' ? 'bg-orange-900/50 text-orange-300' :
-                         'bg-green-900/50 text-green-300'
-                       }`}>
-                         {skill.category}
-                       </span>
-                     </div>
-                     <div className="flex items-center gap-2 sm:gap-3">
-                        <div className="flex-1 bg-slate-700 h-1.5 sm:h-2 rounded-full overflow-hidden">
-                          <div
-                              className={`bg-gradient-to-r from-primary-600 to-primary-400 h-full rounded-full transition-all duration-1000 ease-out ${
-                                isVisible ? 'group-hover:animate-pulse' : ''
-                              }`}
-                              style={{ width: `${skill.level}%` }}
-                          ></div>
-                        </div>
-                        <span className={`text-[10px] sm:text-xs font-mono w-7 sm:w-8 text-right ${
-                          isVisible ? 'text-slate-400' : 'text-slate-600'
-                        }`}>
-                          {skill.level}%
-                        </span>
-                     </div>
-                   </div>
-                 </ScrollReveal>
-               );
-             })}
-          </div>
-
-        </div>
+          return (
+            <>
+              <div className="grid grid-cols-5 gap-6 sm:gap-8">
+                {main.map((skill, i) => renderSkill(skill, i))}
+              </div>
+              {overflow.length > 0 && (
+                <div className="flex justify-center gap-6 sm:gap-8 mt-6 sm:mt-8">
+                  {overflow.map((skill, i) => (
+                    <div key={skill.name} className="w-[calc(20%-1.5rem)] sm:w-[calc(20%-2rem)]">
+                      {renderSkill(skill, main.length + i)}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          );
+        })()}
       </div>
     </section>
   );

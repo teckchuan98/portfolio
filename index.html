@@ -3,28 +3,50 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#0f172a" />
-    <link rel="icon" type="image/png" href="/profile2.png" />
-    <meta
-      name="description"
-      content="Interactive Portfolio of Ting Teck Chuan - Software Developer"
-    />
+    <meta name="theme-color" content="#FAF8F3" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/profile2.png" />
+    <meta name="description" content="Backend Engineer with 5+ years of experience in Java, Spring Boot, and scalable systems. Building side projects including iOS apps and web tools." />
     <title>Ting Teck Chuan | Software Developer</title>
+
+    <!-- Open Graph / social & search previews -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://tteckchuan.dev/" />
+    <meta property="og:title" content="Ting Teck Chuan | Software Developer" />
+    <meta property="og:description" content="Backend Engineer with 5+ years of experience in Java, Spring Boot, and scalable systems." />
+    <meta property="og:image" content="https://tteckchuan.dev/pixel.png" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Ting Teck Chuan | Software Developer" />
+    <meta name="twitter:description" content="Backend Engineer with 5+ years of experience in Java, Spring Boot, and scalable systems." />
+    <meta name="twitter:image" content="https://tteckchuan.dev/pixel.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
         theme: {
           extend: {
-            colors: {
-              slate: {
-                850: '#151f32',
-                900: '#0f172a',
-                950: '#020617',
+            fontFamily: {
+              'mono': ['"Space Mono"', 'monospace'],
+              'sans': ['Inter', 'system-ui', 'sans-serif'],
+            },
+          colors: {
+              cream: {
+                50: '#FEFDF9',
+                100: '#FAF8F3',
+                200: '#F0EBE0',
+                300: '#E5DDD0',
               },
               primary: {
-                400: '#38bdf8',
-                500: '#0ea5e9',
-                600: '#0284c7',
+                400: '#374151',
+                500: '#1f2937',
+                600: '#111827',
+              },
+              gold: {
+                DEFAULT: '#B8935A',
+                light: '#D4AF7A',
+                dark: '#9A7A48',
               }
             },
             animation: {
@@ -69,38 +91,46 @@
       };
     </script>
     <style>
+      html {
+        scroll-padding-top: 72px;
+      }
       body {
-        background-color: #0f172a;
-        color: #f8fafc;
-        font-family: 'Inter', sans-serif;
+        background-color: #FAF8F3;
+        color: #111827;
+        font-family: 'Space Mono', monospace;
+        font-variant: small-caps;
         scroll-behavior: smooth;
         overflow-x: hidden;
+      }
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Inter', system-ui, sans-serif;
+        font-variant: normal;
       }
       /* Custom scrollbar */
       ::-webkit-scrollbar {
         width: 10px;
       }
       ::-webkit-scrollbar-track {
-        background: #0f172a;
+        background: #FAF8F3;
       }
       ::-webkit-scrollbar-thumb {
-        background: #334155;
+        background: #9CA3AF;
         border-radius: 5px;
-        border: 2px solid #0f172a;
+        border: 2px solid #FAF8F3;
       }
       ::-webkit-scrollbar-thumb:hover {
-        background: #475569;
+        background: #6B7280;
       }
-      
+
       .glass-card {
-        background: rgba(30, 41, 59, 0.4);
+        background: rgba(255, 255, 255, 0.6);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(148, 163, 184, 0.1);
+        border: 1px solid rgba(0, 0, 0, 0.08);
       }
-      
+
       .text-glow {
-        text-shadow: 0 0 20px rgba(56, 189, 248, 0.5);
+        text-shadow: 0 0 20px rgba(17, 24, 39, 0.3);
       }
 
       .reveal {

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#8B7FE8"/>
+      <stop offset="100%" stop-color="#5B9BF5"/>
+    </linearGradient>
+    <clipPath id="clip">
+      <path d="M50 5 C28 5 8 22 8 44 C8 50 10 56 14 61 C10 65 8 70 8 75 C8 88 19 95 32 95 C38 95 43 93 47 89 C48 89.5 49 90 50 90 C51 90 52 89.5 53 89 C57 93 62 95 68 95 C81 95 92 88 92 75 C92 70 90 65 86 61 C90 56 92 50 92 44 C92 22 72 5 50 5Z"/>
+    </clipPath>
+  </defs>
+  <path d="M50 5 C28 5 8 22 8 44 C8 50 10 56 14 61 C10 65 8 70 8 75 C8 88 19 95 32 95 C38 95 43 93 47 89 C48 89.5 49 90 50 90 C51 90 52 89.5 53 89 C57 93 62 95 68 95 C81 95 92 88 92 75 C92 70 90 65 86 61 C90 56 92 50 92 44 C92 22 72 5 50 5Z" fill="url(#g)"/>
+  <text x="26" y="58" font-family="monospace, 'Courier New'" font-size="28" font-weight="bold" fill="white">&gt;-</text>
+</svg>
