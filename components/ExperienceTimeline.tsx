@@ -126,7 +126,8 @@ const ExperienceTimeline: React.FC = () => {
             </div>
 
             {/* Cards */}
-            <div className="flex flex-row justify-center gap-8 px-2 sm:px-4 flex-wrap mb-12">
+            <div className="overflow-x-auto hide-scrollbar pb-4 mb-12">
+            <div className="flex flex-row gap-8 px-2 sm:px-4 min-w-max mx-auto" style={{ width: 'fit-content' }}>
               {EXPERIENCES.filter(e => e.platform === activeSubTab).map((exp, index) => (
                 <ScrollReveal key={exp.id} delay={index * 100}>
                   {activeSubTab === 'ios' ? (
@@ -181,6 +182,7 @@ const ExperienceTimeline: React.FC = () => {
                   )}
                 </ScrollReveal>
               ))}
+            </div>
             </div>
 
             {/* Quote */}
