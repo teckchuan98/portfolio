@@ -8,6 +8,7 @@ type Tab = 'professional' | 'personal';
 
 const ExperienceTimeline: React.FC = () => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const personalScrollRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const dragStartX = useRef(0);
   const dragScrollLeft = useRef(0);
@@ -126,13 +127,34 @@ const ExperienceTimeline: React.FC = () => {
             </div>
 
             {/* Cards */}
-            <div className="overflow-x-auto hide-scrollbar pb-4 mb-12">
-            <div className="flex flex-row gap-8 px-2 sm:px-4 min-w-max mx-auto" style={{ width: 'fit-content' }}>
+            <div
+              ref={personalScrollRef}
+              className={`overflow-x-auto hide-scrollbar pb-4 mb-4 select-none ${dragging ? 'cursor-grabbing' : 'cursor-grab'}`}
+              onMouseDown={e => {
+                if (!personalScrollRef.current) return;
+                isDragging.current = true;
+                dragMoved.current = false;
+                setDragging(true);
+                dragStartX.current = e.pageX - personalScrollRef.current.offsetLeft;
+                dragScrollLeft.current = personalScrollRef.current.scrollLeft;
+              }}
+              onMouseMove={e => {
+                if (!isDragging.current || !personalScrollRef.current) return;
+                e.preventDefault();
+                const x = e.pageX - personalScrollRef.current.offsetLeft;
+                const walk = (x - dragStartX.current) * 1.2;
+                if (Math.abs(walk) > 5) dragMoved.current = true;
+                personalScrollRef.current.scrollLeft = dragScrollLeft.current - walk;
+              }}
+              onMouseUp={stopDrag}
+              onMouseLeave={stopDrag}
+            >
+            <div className="flex flex-row gap-8 px-2 sm:px-4 min-w-max">
               {EXPERIENCES.filter(e => e.platform === activeSubTab).map((exp, index) => (
                 <ScrollReveal key={exp.id} delay={index * 100}>
                   {activeSubTab === 'ios' ? (
-                    <div className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gold transition-all duration-300 flex flex-row w-[560px] sm:w-[620px]">
-                      <a href={exp.link} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 block bg-gray-50 border-r border-gray-100">
+                    <div className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gold transition-all duration-300 flex flex-row w-[560px] sm:w-[620px] h-[420px]">
+                      <a href={exp.link} target="_blank" rel="noopener noreferrer" className="flex-shrink-0 block bg-gray-50 border-r border-gray-100 h-full">
                         <img src={exp.image} alt={exp.company} className="h-full w-auto max-w-[220px] object-contain group-hover:scale-[1.02] transition-transform duration-500" />
                       </a>
                       <div className="flex flex-col justify-between p-6 flex-1">
@@ -155,8 +177,8 @@ const ExperienceTimeline: React.FC = () => {
                       </div>
                     </div>
                   ) : (
-                    <div className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gold transition-all duration-300 flex flex-row w-[560px] sm:w-[620px]">
-                      <div className="flex-shrink-0 w-[180px] bg-gradient-to-br from-gray-900 to-gray-700 flex flex-col items-center justify-center gap-3 p-6">
+                    <div className="group bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-md hover:shadow-xl hover:border-gold transition-all duration-300 flex flex-row w-[560px] sm:w-[620px] h-[420px]">
+                      <div className="flex-shrink-0 w-[180px] bg-gradient-to-br from-gray-900 to-gray-700 flex flex-col items-center justify-center gap-3 p-6 h-full">
                         <Code2 size={32} className="text-gold" />
                         <span className="text-gold-light text-xs font-mono tracking-widest text-center">{exp.link?.replace('https://', '')}</span>
                       </div>
@@ -183,6 +205,9 @@ const ExperienceTimeline: React.FC = () => {
                 </ScrollReveal>
               ))}
             </div>
+            </div>
+            <div className="text-center mb-8 text-gray-400 text-xs sm:text-sm">
+              Drag to scroll
             </div>
 
             {/* Quote */}
